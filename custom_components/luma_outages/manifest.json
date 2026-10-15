@@ -1,12 +1,12 @@
 {
   "domain": "luma_outages",
   "name": "LUMA Outages",
-  "codeowners": [],
+  "codeowners": [@marianelasandoval822-code],
   "config_flow": true,
-  "documentation": "https://github.com/your-name/luma_outages",
+  "documentation": "https://github.com/marianelasandoval822-code/luma_outages",
   "integration_type": "service",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/your-name/luma_outages/issues",
+  "issue_tracker": "https://github.com/marianelasandoval822-code/luma_outages/issues",
   "requirements": [],
   "single_config_entry": true,
   "version": "0.2.0"
