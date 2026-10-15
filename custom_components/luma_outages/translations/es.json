@@ -1,0 +1,69 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "LUMA Outages",
+        "description": "Elige las regiones de LUMA que quieres seguir. LUMA reporta por región, no por pueblo: San Juan, Bayamón, Caguas, Carolina, Arecibo, Mayagüez y Ponce. Home Assistant hará una consulta de prueba al enviar.",
+        "data": {
+          "regions": "Regiones",
+          "include_island_total": "Añadir también el total de Puerto Rico",
+          "significant_outage_percent": "Umbral de apagón significativo (% de clientes sin servicio)",
+          "scan_interval": "Intervalo de actualización (minutos)",
+          "custom_headers": "Encabezados personalizados (JSON, opcional)"
+        },
+        "data_description": {
+          "custom_headers": "LUMA solo responde a solicitudes que parecen venir de un teléfono o del sitio Mi LUMA. Por defecto se envía un User-Agent móvil. Si sale el error de bloqueo, pega los encabezados copiados de las herramientas de desarrollo del navegador, p. ej. {\"User-Agent\": \"...\", \"Origin\": \"https://miluma.lumapr.com\"}."
+        }
+      }
+    },
+    "error": {
+      "no_regions": "Selecciona al menos una región.",
+      "invalid_headers": "Los encabezados deben ser un objeto JSON con valores de texto.",
+      "blocked": "LUMA rechazó la solicitud. Añade encabezados que emulen un dispositivo (ver la ayuda del campo) e inténtalo de nuevo.",
+      "cannot_connect": "No se pudo conectar con LUMA. Inténtalo de nuevo en unos minutos."
+    },
+    "abort": {
+      "already_configured": "LUMA Outages ya está configurado. Usa Configurar para cambiar las regiones."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opciones de LUMA Outages",
+        "data": {
+          "regions": "Regiones",
+          "include_island_total": "Añadir también el total de Puerto Rico",
+          "significant_outage_percent": "Umbral de apagón significativo (% de clientes sin servicio)",
+          "scan_interval": "Intervalo de actualización (minutos)",
+          "custom_headers": "Encabezados personalizados (JSON, opcional)"
+        },
+        "data_description": {
+          "custom_headers": "Encabezados que se combinan sobre los predeterminados. Úsalos si LUMA empieza a rechazar las solicitudes."
+        }
+      }
+    },
+    "error": {
+      "no_regions": "Selecciona al menos una región.",
+      "invalid_headers": "Los encabezados deben ser un objeto JSON con valores de texto.",
+      "blocked": "LUMA rechazó la solicitud. Revisa los encabezados personalizados.",
+      "cannot_connect": "No se pudo conectar con LUMA. Inténtalo de nuevo en unos minutos."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "percent_with_power": { "name": "Clientes con servicio" },
+      "percent_without_service": { "name": "Clientes sin servicio" },
+      "clients_without_service": { "name": "Clientes sin servicio (cantidad)" },
+      "unplanned_outage_clients": { "name": "Clientes sin servicio no planificado" },
+      "planned_outage_clients": { "name": "Clientes en mejoras planificadas" },
+      "load_shed_clients": { "name": "Clientes en relevo de carga" },
+      "clients_with_service": { "name": "Clientes con servicio (cantidad)" },
+      "clients_total": { "name": "Total de clientes" }
+    },
+    "binary_sensor": {
+      "significant_outage": { "name": "Apagón significativo" },
+      "load_shed": { "name": "Relevo de carga" },
+      "planned_work": { "name": "Mejoras planificadas" }
+    }
+  }
+}
